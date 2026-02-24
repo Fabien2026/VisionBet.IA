@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard - VisionBet.IA</title>
+<style>
+body {background:#0f172a;color:white;text-align:center;font-family:Arial;}
+.card {
+    background:#1e293b;
+    margin:20px auto;
+    padding:20px;
+    border-radius:10px;
+    width:300px;
+}
+button {
+    padding:10px 20px;
+    background:#00ffcc;
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h1>Dashboard VisionBet.IA</h1>
+
+<div id="predictions"></div>
+
+<button onclick="generatePrediction()">Nouvelle prédiction</button>
+
+<script>
+function generatePrediction(){
+    const matchs = [
+        "PSG vs Marseille",
+        "Real Madrid vs Barça",
+        "Man City vs Liverpool",
+        "Bayern vs Dortmund"
+    ];
+
+    const prediction = [
+        "Victoire domicile",
+        "Plus de 2.5 buts",
+        "Match nul",
+        "Les deux équipes marquent"
+    ];
+
+    const randomMatch = matchs[Math.floor(Math.random()*matchs.length)];
+    const randomPrediction = prediction[Math.floor(Math.random()*prediction.length)];
+
+    document.getElementById("predictions").innerHTML =
+        `<div class="card">
+            <h3>${randomMatch}</h3>
+            <p>Prédiction IA : ${randomPrediction}</p>
+        </div>`;
+}
+</script>
+
+</body>
+</html>
